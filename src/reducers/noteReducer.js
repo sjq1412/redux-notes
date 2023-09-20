@@ -1,6 +1,6 @@
 const noteReducer = (state = [], action) => {
     if (action.type === 'NEW_NOTE') {
-      return state.concat(action.payload)
+      return [...state, action.payload]
     }
     if (action.type === 'TOGGLE_IMPORTANCE') {
         const id = action.payload.id
