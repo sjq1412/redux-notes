@@ -10,27 +10,35 @@ const store = createStore(noteReducer)
 console.log(store.getState())
 
 const App = () => {
-  const addNote = event => {
-    event.preventDefault()
-    const content = event.target.note.value
-    event.target.note.value = ''
-    store.dispatch({
+  // action creators
+  const createNote = (content) => {
+    return {
       type: 'NEW_NOTE',
       payload: {
         content,
         id: generateId(),
         important: false
       }
-    })
+    }
   }
-
-  const toggleImportance = (id) => {
-    store.dispatch({
+  const toggleImportanceOf = (id) => {
+    return {
       type: 'TOGGLE_IMPORTANCE',
       payload: {
         id
       }
-    })
+    }
+  }
+
+  const addNote = event => {
+    event.preventDefault()
+    const content = event.target.note.value
+    event.target.note.value = ''
+    store.dispatch(createNote(content))
+  }
+
+  const toggleImportance = (id) => {
+    store.dispatch(toggleImportanceOf(id))
   }
 
   return (
