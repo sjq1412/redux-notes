@@ -13,7 +13,12 @@ const Note = ({note, toggleImportance}) => {
 
 const Notes = () => {
     const dispatch = useDispatch()
-    const notes = useSelector(state => state)
+    const notes = useSelector(({notes, filter}) => {
+        if (filter === "ALL") {
+            return notes
+        }
+        return notes.filter(note => filter === "IMPORTANT" ? note.important : !note.important)
+    })
 
     const toggleImportance = (id) => {
         dispatch(toggleImportanceOf(id))
