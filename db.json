@@ -16,9 +16,24 @@
       "id": 3
     },
     {
+      "important": true,
       "content": "hi",
-      "important": false,
       "id": 4
+    },
+    {
+      "important": true,
+      "content": "my note",
+      "id": 5
+    },
+    {
+      "important": true,
+      "content": "new note",
+      "id": 6
+    },
+    {
+      "important": true,
+      "content": "hi",
+      "id": 7
     }
   ]
 }
